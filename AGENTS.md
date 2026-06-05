@@ -1,184 +1,186 @@
 # AGENTS.md
 
-> 个人 AI 上下文模板。新项目启动时，填写顶部两个区块，其余规则框架保持不变。
-> 本文件为 AI 全量读取模式，不可遗漏任何章节。
+> Personal AI context template. Fill in the top two sections at project start. The rest is a stable rules framework.
+> This file is read in full by AI — do not skip any section.
 
 ---
 
-## ■ 身份（本次项目中的角色）
+## ■ Identity (your role in this project)
 
-<!-- 按实际项目填写，删掉不贴合的，保留当前角色 -->
-- 角色：（学生开发者 / 个人开发者 / 后端工程师 / 全栈 / ……）
-- 目标：本次项目要解决什么问题？
-- 技能水平：（熟悉 / 掌握 / 初学）当前技术栈
-
----
-
-## ■ 项目概述（从零开始描述本次项目）
-
-<!-- 每个新项目重新填写此区域，让 AI 从零理解你在做什么 -->
-
-- 项目名称：
-- 一句话描述：
-- 仓库地址：
-- 后端：（语言 + 框架 + 版本）
-- 前端：（框架 + UI 库 + 打包工具）
-- 数据库：（类型 + 版本）
-- 部署方式：（本地 / 云服务器 / Docker / ……）
-- 服务器信息：（IP / 管理面板 / SSH 条件。本地开发则写"本地开发"）
-
-当前进度：
-- 已完成：
-- 进行中：
-- 待开发：
+<!-- Fill per project. Delete what doesn't apply. -->
+- Role: (student dev / solo dev / backend engineer / full-stack / ...)
+- Goal: What problem does this project solve?
+- Skill level: (familiar / proficient / beginner) with the current stack
 
 ---
 
-## ■ Skill 使用矩阵
+## ■ Project Overview (describe this project from scratch)
 
-### 默认始终加载
-| Skill | 用途 |
-|-------|------|
-| `caveman` | 压缩通信，减少 token 消耗 |
+<!-- Refill for each new project so AI understands everything from zero. -->
 
-### 按场景加载
-| Skill | 触发条件 |
+- Project name:
+- One-liner:
+- Repository:
+- Backend: (language + framework + version)
+- Frontend: (framework + UI library + bundler)
+- Database: (type + version)
+- Deployment: (local / cloud server / Docker / ...)
+- Server info: (IP / panel / SSH access. Write "local dev" if not applicable)
+
+Current status:
+- Done:
+- In progress:
+- TODO:
+
+---
+
+## ■ Skill Matrix
+
+### Always Loaded
+| Skill | Purpose |
 |-------|---------|
-| `frontend-design` | 创建前端页面、组件、UI 交互 |
-| `ui-ux-pro-max` | 设计讨论、信息架构、UX 流程 |
-| `code-review` | 初次审查、建立审查标准 |
-| `code-review-fix` | 功能完成后自动审查修复 |
-| `Git` | 分支、合并、冲突解决、rebase |
-| `caveman-commit` | 生成 commit message |
-| `github` | PR、Issue、CI 操作 |
-| `self-improvement` | 命令失败、被纠正、发现新能力 |
-| `find-skills` | 搜索新的能力扩展 |
-| `skill-creator` | 固定可复用的重复流程 |
-| `cloudstudio-deploy` | 部署静态站点到云端预览 |
+| `caveman` | Compress communication, reduce token usage ~75% |
 
-### 联动规则
-- 功能开发完成 → 自动加载 `code-review-fix`
-- 生成 commit message → 自动用 `caveman-commit`
-- 被纠错或命令失败 → 触发 `self-improvement`，输出记录写入 `experience/` 目录
-- 重复操作 ≥3 次 → 主动询问是否用 `skill-creator` 固化为 skill
+### Load on Demand
+| Skill | Trigger |
+|-------|---------|
+| `frontend-design` | Creating pages, components, UI interactions |
+| `ui-ux-pro-max` | Design discussion, UX flow, information architecture |
+| `code-review` | Initial review, establishing review standards |
+| `code-review-fix` | Auto-review after feature completion |
+| `Git` | Branches, merges, conflict resolution, rebase |
+| `caveman-commit` | Generating commit messages |
+| `github` | PRs, Issues, CI operations |
+| `self-improvement` | Command failure, user correction, new capability discovered |
+| `find-skills` | Searching for new capability extensions |
+| `skill-creator` | Solidifying repeatable workflows as skills |
+| `cloudstudio-deploy` | Deploying static sites to cloud preview |
 
----
-
-## ■ AI 交互规则
-
-以下规则适用于所有项目，不随项目切换而改变。
-
-### 沟通
-- 用中文交流，简洁直接，不要废话套话
-- 技术决策需要原理性解释 + 数字对比，不要只列步骤
-- 直接给可复制执行的脚本、SQL、配置，不要让我截图
-- 方案讨论先列选项和利弊，等我确认再动手
-
-### 操作边界
-- SQL 改动（DDL / DML）先输出内容让我确认，不自动执行
-- 不主动 `git push`，等我明确说"推"
-- 不主动连接服务器执行命令，除非我明确授权
-- 功能完成后自动做一轮 code review（重复代码、异常处理、边界条件）
-
-### 交付
-- 每次改动结束给出总结：分条列出改了什么、为什么改
-- 涉及多个文件时，说清楚文件之间的调用关系
-- 新功能上线前，本地先跑编译确认通过
+### Auto-Link Rules
+- Feature complete → auto-load `code-review-fix`
+- Generating commit → auto-use `caveman-commit`
+- User correction or command failure → trigger `self-improvement`, write record to `experience/`
+- Same operation repeated ≥3 times → ask whether to solidify via `skill-creator`
 
 ---
 
-## ■ 代码规范（按实际技术栈选择）
+## ■ AI Interaction Rules
 
-<!-- 以下章节为模板。当前项目用什么就填什么，不用的章节可整块删除。 -->
+Applied across all projects.
 
-### Java / Spring Boot（如适用）
-- 实体类用 Lombok：`@Data`、`@NoArgsConstructor`、`@AllArgsConstructor`
-- 字段驼峰命名，数据库下划线自动映射（`map-underscore-to-camel-case=true`）
-- Service 层：接口 + 实现类（`XxxService` + `XxxServiceImpl`）
-- Controller 返回统一 `Result<T>`（`code`、`message`、`data`）
-- 异常走 `@RestControllerAdvice` 全局处理
-- 时间字段用 `LocalDateTime`，序列化格式 `yyyy-MM-dd HH:mm:ss`
-- 分页用 MyBatis-Plus `Page<T>`，不自造轮子
+### Communication
+- Speak Chinese, concise and direct. No filler words.
+- Technical decisions require rationale + numbers, not just steps.
+- Provide copy-paste-ready scripts, SQL, configs. No screenshots.
+- Present options with trade-offs before acting. Wait for confirmation.
 
-### Vue3 / Element Plus（如适用）
+### Boundaries
+- SQL changes (DDL / DML): output first for approval. Never auto-execute.
+- Never `git push` without explicit approval.
+- Never connect to servers without explicit authorization.
+- After feature completion: auto-run code review (duplication, exception handling, edge cases).
+
+### Deliverables
+- End each change session with a summary: what changed and why, itemized.
+- Multi-file changes: explain the call chain between files.
+- Before going live: run local build to confirm compilation passes.
+
+---
+
+## ■ Code Conventions (pick based on current stack)
+
+<!-- Template sections. Keep what fits, delete what doesn't. -->
+
+### Java / Spring Boot (if applicable)
+- Entities use Lombok: `@Data`, `@NoArgsConstructor`, `@AllArgsConstructor`
+- camelCase fields, snake_case DB columns (auto-mapped)
+- Service layer: interface + impl (`XxxService` + `XxxServiceImpl`)
+- Controller returns unified `Result<T>` (`code`, `message`, `data`)
+- Exceptions handled globally via `@RestControllerAdvice`
+- Time fields: `LocalDateTime`, serialized as `yyyy-MM-dd HH:mm:ss`
+- Pagination: MyBatis-Plus `Page<T>`
+
+### Vue3 / Element Plus (if applicable)
 - Composition API + `<script setup>`
-- 简单状态 `reactive`/`ref`，跨组件用 Pinia
-- API 调用统一在 `api/` 目录封装
-- 列表页必须有 loading 和空数据提示
-- 图片懒加载（`v-lazy`），减少首屏请求
+- Local state: `reactive`/`ref`; cross-component: Pinia
+- API calls centralized in `api/` directory
+- List pages must have loading state and empty-data hints
+- Images: lazy-load via `v-lazy`
 
-### SQL / 数据库（如适用）
-- 所有表包含 `id`（自增）、`create_time`、`update_time`
-- `update_time` 设置 `ON UPDATE CURRENT_TIMESTAMP`
-- 逻辑删除用 `is_deleted`（tinyint，默认 0），不用物理删除
-- 高频查询字段 + 外键字段加索引
-- 表结构和字段必须加 `COMMENT`
+### SQL / Database (if applicable)
+- Every table: `id` (auto-increment), `create_time`, `update_time`
+- `update_time` with `ON UPDATE CURRENT_TIMESTAMP`
+- Soft delete: `is_deleted` (tinyint, default 0). No physical deletes.
+- Index high-frequency query fields and foreign keys.
+- Every table and column must have `COMMENT`.
 
-### 通用（所有项目适用）
-- 硬编码抽常量或枚举
-- 敏感信息走配置文件 + 环境变量，不入 `.gitignore`
-- 日志用 SLF4J，生产环境关闭 SQL 日志
+### Universal (all projects)
+- Hardcoded strings/numbers → constants or enums
+- Secrets (keys, passwords, tokens) → config file + env vars, excluded via `.gitignore`
+- Logging: SLF4J. Disable SQL logs in production.
 
 ---
 
-## ■ Git 流程（所有项目适用）
+## ■ Git Workflow (all projects)
 
-### 分支策略
+### Branches
 ```
-main        ← 稳定版本，只从 develop 合并
-develop     ← 开发主分支
-feature/*   ← 新功能分支（如 feature/chat、feature/review）
-fix/*       ← bug 修复分支
+main        ← stable, merge from develop only
+develop     ← integration
+feature/*   ← new features (e.g., feature/chat, feature/review)
+fix/*       ← bug fixes
 ```
 
-### Commit Message
+### Commit Format
 ```
-<type>: <简述>
-- 改动点1
-- 改动点2
+<type>: <short description>
+- change point 1
+- change point 2
 ```
-type：`feat`（新功能）/ `fix`（修复）/ `chore`（工程化）/ `perf`（性能）/ `refactor`（重构）
+Types: `feat` / `fix` / `chore` / `perf` / `refactor`
 
-### 提交流程
-1. `git status` 确认文件状态
-2. `git add <files>` 精确添加目标文件
+### Steps
+1. `git status` to check file states
+2. `git add <files>` — exact targeting, no `git add .`
 3. `git commit`
-4. 等我确认后 `git push`
+4. Wait for confirmation, then `git push`
 
-### 文件状态速查
-| 状态 | 含义 | 操作 |
-|------|------|------|
-| Untracked | 新文件，Git 不跟踪 | `git add` 纳入管理 |
-| Modified | 已跟踪文件的修改 | `git add` 暂存修改 |
-| Staged | 已 add 待 commit | `git commit` |
+### File State Reference
+| State | Meaning | Action |
+|-------|---------|--------|
+| Untracked | New file, Git unaware | `git add` to track |
+| Modified | Tracked file changed | `git add` to stage |
+| Staged | Added, awaiting commit | `git commit` |
 
 ---
 
-## ■ 经验目录
+## ■ Experience Directory
 
-以下目录仅供开发者查阅，**AI 不自动读取，不注入上下文**：
+For developer reference only. **AI does not scan, does not inject into context.**
 
 ```
 experience/
-├── pitfalls.md       ← 踩坑记录（场景 + 原因 + 解法）
-├── fixes.md          ← AI 被我纠正的记录（错什么 → 应该怎样）
-├── optimization.md   ← 验证过的优化方案 + 数据对比
-├── decisions.md      ← 架构决策记录（选 A 不选 B，为什么）
-└── habits.md         ← 个人开发习惯记录
+├── pitfalls.md       ← Gotchas (scenario + cause + fix)
+├── fixes.md          ← AI corrections (what was wrong → what's right)
+├── optimization.md   ← Proven optimizations + data comparisons
+├── decisions.md      ← Architecture Decision Records (why A over B)
+└── habits.md         ← Personal dev habits and workflows
 ```
 
-### AI 写入规则
-- 触发 `self-improvement` 时，将记录追加到 `experience/` 对应文件
-- 写入后说明文件名和条目摘要
-- 检测到重复 ≥3 次的操作模式时，主动询问是否沉淀到 `habits.md`
+### AI Write Rules
+- When `self-improvement` triggers: append record to the matching `experience/` file.
+- After writing: tell the file name and entry summary.
+- When detecting a pattern repeated ≥3 times: ask whether to document in `habits.md`.
 
 ---
 
-## ■ 扩展说明
+## ■ Extension Notes
 
-本文件按"模板 + 填空"设计：
-- 顶部两个区块（身份、项目概述）→ 每次新项目填写，是动态上下文
-- 中下部规则 → 跨项目稳定，只在发现更好的做法时修改
-- 经验沉淀 → 见同目录 `experience/`，纯开发者查阅，不与 AI 上下文混合
+This file follows a "template + fill-in" design:
+- Top two sections (Identity, Project Overview) → refill per project. Dynamic context.
+- Middle/lower rules → stable across projects. Only change when a better practice is found.
+- Experience → see `experience/`. Developer-only, never mixed into AI context.
 
-当规则超过 500 行或引入第二个技术栈时，技术栈规范拆到 `profiles/` 目录，并在本章节加硬指令要求 AI 全量读取。
+When rules exceed 500 lines or a second tech stack is introduced:
+- Split stack-specific rules into `profiles/` directory.
+- Add a hard directive in this section requiring AI to read ALL profiles.
