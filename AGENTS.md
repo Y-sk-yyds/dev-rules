@@ -2,6 +2,9 @@
 
 > Personal AI context template. Fill in the top two sections at project start. The rest is a stable rules framework.
 > This file is read in full by AI — do not skip any section.
+>
+> **Isolation rule**: the `experience/` directory stays in the `dev-rules` repo only. It is NEVER copied into project workspaces.
+> Only this single `AGENTS.md` file should exist in a project root. This prevents AI code exploration from accidentally scanning personal notes.
 
 ---
 
