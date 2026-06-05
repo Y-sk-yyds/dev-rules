@@ -3,7 +3,27 @@
 > Personal AI context template. Fill in the top two sections at project start. The rest is a stable rules framework.
 > This file is read in full by AI — do not skip any section.
 >
-> This repo can be cloned directly into any project. AI tools auto-inject only files matching `AGENTS.md` / `CLAUDE.md` / `.cursorrules` by name — `experience/`, `README.md`, and other files are never auto-loaded. Physical isolation is unnecessary.
+> This repo can be cloned directly into any project. AI tools auto-inject only files matching `AGENTS.md` / `CLAUDE.md` / `.cursorrules` by name — `experience/`, `README.md`, and other files are never auto-loaded.
+>
+> **Active onboarding:** When this file is first loaded, check whether the `Identity` and `Project Overview` sections below are filled with real values (not placeholders or blanks). If they are empty or contain only template text, you MUST ask the developer the following questions BEFORE writing any code. Do not skip this step — incomplete context produces wrong solutions.
+
+---
+
+## ■ Before Coding: Required Questions
+
+If any of the following are unanswered, ask the developer NOW. Do not proceed to coding.
+
+1. What's your role in this project? (student / solo dev / backend engineer / ...)
+2. What problem are you solving with this project?
+3. How familiar are you with the tech stack?
+4. Project name and one-sentence description?
+5. Backend: language, framework, version?
+6. Frontend: framework, UI library, bundler?
+7. Database: type and version?
+8. Deployment: local only, or cloud/server? Any server details?
+9. What's already done? What's in progress? What's next?
+
+Once answered, fill the sections below. Then proceed with development following all conventions in this file.
 
 ---
 
