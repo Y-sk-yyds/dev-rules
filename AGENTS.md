@@ -23,6 +23,14 @@ If any of the following are unanswered, ask the developer NOW. Do not proceed to
 8. Deployment: local only, or cloud/server? Any server details?
 9. What's already done? What's in progress? What's next?
 
+**Version compatibility check (MANDATORY):**
+After the developer answers, compare their stack versions against the conventions in this file. If a convention section targets a different major version (e.g., Spring Boot 2.x conventions but the project uses 3.x, or Vue2 conventions but the project uses Vue3), flag the mismatch and ask whether to:
+- A) Adjust the conventions to match the actual stack
+- B) Keep conventions as-is and note the differences
+- C) Skip the mismatched section entirely
+
+Never apply version-specific conventions to the wrong version without confirmation.
+
 Once answered, fill the sections below. Then proceed with development following all conventions in this file.
 
 ---
@@ -111,9 +119,9 @@ Applied across all projects.
 
 ## ■ Code Conventions (pick based on current stack)
 
-<!-- Template sections. Keep what fits, delete what doesn't. -->
+<!-- Each subsection declares its target versions. AI MUST check compatibility before applying. -->
 
-### Java / Spring Boot (if applicable)
+### Java / Spring Boot (target: Spring Boot 2.7.x + MyBatis-Plus 3.5.x)
 - Entities use Lombok: `@Data`, `@NoArgsConstructor`, `@AllArgsConstructor`
 - camelCase fields, snake_case DB columns (auto-mapped)
 - Service layer: interface + impl (`XxxService` + `XxxServiceImpl`)
@@ -122,14 +130,14 @@ Applied across all projects.
 - Time fields: `LocalDateTime`, serialized as `yyyy-MM-dd HH:mm:ss`
 - Pagination: MyBatis-Plus `Page<T>`
 
-### Vue3 / Element Plus (if applicable)
+### Vue3 / Element Plus (target: Vue 3.x + Element Plus + Vite)
 - Composition API + `<script setup>`
 - Local state: `reactive`/`ref`; cross-component: Pinia
 - API calls centralized in `api/` directory
 - List pages must have loading state and empty-data hints
 - Images: lazy-load via `v-lazy`
 
-### SQL / Database (if applicable)
+### SQL / Database (target: MySQL 8.0+, InnoDB, utf8mb4)
 - Every table: `id` (auto-increment), `create_time`, `update_time`
 - `update_time` with `ON UPDATE CURRENT_TIMESTAMP`
 - Soft delete: `is_deleted` (tinyint, default 0). No physical deletes.
