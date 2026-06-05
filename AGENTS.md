@@ -3,8 +3,7 @@
 > Personal AI context template. Fill in the top two sections at project start. The rest is a stable rules framework.
 > This file is read in full by AI — do not skip any section.
 >
-> **Isolation rule**: the `experience/` directory stays in the `dev-rules` repo only. It is NEVER copied into project workspaces.
-> Only this single `AGENTS.md` file should exist in a project root. This prevents AI code exploration from accidentally scanning personal notes.
+> This repo can be cloned directly into any project. AI tools auto-inject only files matching `AGENTS.md` / `CLAUDE.md` / `.cursorrules` by name — `experience/`, `README.md`, and other files are never auto-loaded. Physical isolation is unnecessary.
 
 ---
 
@@ -159,7 +158,7 @@ Types: `feat` / `fix` / `chore` / `perf` / `refactor`
 
 ## ■ Experience Directory
 
-For developer reference only. **AI does not scan, does not inject into context.**
+For developer reference only. Safe to keep in project workspace: AI tools inject `AGENTS.md` by filename match; `experience/*.md` does not match any auto-load pattern.
 
 ```
 experience/
