@@ -28,6 +28,12 @@
 **操作**：jar 文件同级创建 `config/` 目录，放入 `application.yml`
 **原因**：Spring Boot 外挂配置优先级高于 jar 内配置，改配置不用重新打包
 
+### 宝塔环境变量管理敏感配置
+
+**场景**：服务器上 Spring Boot 需要数据库密码等敏感配置
+**操作**：宝塔面板 → 软件商店 → Java 项目 → 环境变量，设置 `DB_USERNAME` / `DB_PASSWORD` / `JWT_SECRET` 等；application.yml 用 `${DB_PASSWORD}` 引用
+**原因**：密码不落地到文件，一个入口管理，项目间可复用
+
 ### 数据库备份走宝塔计划任务
 
 **场景**：生产数据库需要定期备份
